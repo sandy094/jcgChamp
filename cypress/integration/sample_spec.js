@@ -14,11 +14,11 @@ describe('My First Test',()=>{
         cy.url().should('include','/member')
     })
     it('dailymession',()=>{
-        cy.get(':nth-child(1) > .front > img')
-          .should('be.visible')
-          .then(()=>{
-            
-            cy.get('.button-receive-block > .button').click()
+        cy.getCookie('showWizard')
+          .then((val) =>{
+            if(val){
+              cy.get(':nth-child(1) > .front > img').click()
+            }
           })
         
 
