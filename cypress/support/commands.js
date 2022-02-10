@@ -20,6 +20,8 @@ Cypress.Commands.add('login', (user, pwd) => {
     
 
  })
+
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
