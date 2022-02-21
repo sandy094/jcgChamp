@@ -1,7 +1,7 @@
 describe('My First Test', () => {
   const user = 'sandyqa'
   const pwd = 'qasandy'
-  it('Frist login', () => {
+  beforeEach('Frist login', () => {
     cy.visit('/')
     // 免責說明
     cy.get('.flat__btn__accent').click()
@@ -21,12 +21,24 @@ describe('My First Test', () => {
         cy.log('yes')
         cy.get(':nth-child(1) > .front > img').click()
         cy.get('.button-receive-block > .button').click()
+
+        cy.get('.footer-menu > :nth-child(3)').click()
+          .url().should('include','/wallet')
+
+        cy.get(':nth-child(6) > a > img').click()
       }
       else {
         cy.log('no')
+
+        cy.get('.footer-menu > :nth-child(3)').click()
+          .url().should('include','/wallet')
+          
+        cy.get(':nth-child(6) > a > img').click()
       }
 
     })
   })
+
+
 
 })
